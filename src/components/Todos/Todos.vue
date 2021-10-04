@@ -5,8 +5,9 @@
     <button @click="addTodos(title)" class="addBtn">
       <i class="fas fa-plus"></i>
     </button>
-    <!-- Integrating getters -->
+    <h2>Todos</h2>
     <ul>
+      <!-- Integrating getters -->
       <li class="deleteTodos" v-for="items in returnAllTodos" :key="items.id">
         <span class="title"> {{ items.title }} </span>
         <button @click="deleteTodos(items.id)" class="delBtn">
