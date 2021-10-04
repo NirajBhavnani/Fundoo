@@ -1,0 +1,63 @@
+.Todos {
+  background: #d1e4ff;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.Todos ul {
+  padding: 0;
+  list-style-type: none;
+}
+.Todos li {
+  margin-top: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+}
+
+.inputText {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+}
+
+.inputText:focus{
+    outline: 0.1rem solid #860ce8;
+}
+
+.addBtn {
+  color: #860ce8;
+  background-color: transparent;
+  font-size: 2rem;
+  margin-left: 1rem;
+  border: none;
+  padding: 0.5rem 0.8rem;
+}
+
+.addBtn:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #860ce8;
+  border-radius: 40%;
+}
+
+.delBtn {
+  color: #860ce8;
+  background-color: transparent;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-left: 1rem;
+  border: none;
+  width: 40px;
+  height: auto;
+  padding: 0.5rem 0.8rem;
+}
+
+.delBtn:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #860ce8;
+  border-radius: 40%;
+}
