@@ -1,0 +1,88 @@
+.login {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+
+  .login-container {
+    border: solid 1px #dadce0;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    @media screen and (max-width: 600px) {
+      border: none;
+    }
+    @media screen and (min-width: 600.1px) and (max-width: 900px) {
+      width: min(500px, 90vw);
+      padding: 2rem 1.5rem;
+    }
+    .box {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .text-center,
+      .logo {
+        text-align: center;
+        margin: auto;
+        display: block;
+      }
+
+      .title {
+        font-weight: 400;
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-weight: 400;
+        font-size: 1.1rem;
+      }
+
+      a {
+        text-decoration: none;
+        color: #277be9;
+        font-weight: 500;
+      }
+
+      .not-your-computer {
+        margin: 2rem 0;
+        color: #5f6368;
+      }
+
+      .next-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        a {
+          padding: 0.2rem 0rem;
+          &:hover {
+            background-color: #f6fafe;
+            border-radius: 4px;
+            color: #174ea6;
+          }
+        }
+
+        button {
+          font-weight: 600;
+          background-color: #1a73e8;
+          border: none;
+          border-radius: 4px;
+          color: #fff;
+          outline: none;
+          padding: 0.7rem 1.7rem;
+          cursor: pointer;
+          transition: all 0.15s ease-in;
+          &:hover {
+            background-color: #1b66ca;
+            box-shadow: 1px 1px 4px #aaa;
+          }
+        }
+      }
+    }
+  }
+}
