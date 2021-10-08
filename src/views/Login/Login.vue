@@ -11,9 +11,9 @@
         </h2>
         <Textbox name="email" label="Email or phone" />
         <Textbox name="password" label="Enter your password" type="password" />
-        <a href="#">
-          Forgot email?
-        </a>
+        <router-link to="/forgot">
+          Forgot password?
+        </router-link>
         <div class="not-your-computer">
           Not your computer? Use Guest mode to sign in privately.
           <div>

@@ -18,6 +18,11 @@ const routes = [
     component: () => import('../views/Register/Register.vue')
   },
   {
+    path: '/forgot',
+    name: 'Forgot Password',
+    component: () => import('../views/Forgot/Forgot.vue')
+  },
+  {
     path: '/vuex',
     name: 'VueX',
     component: () => import('../views/VuexPractice.vue')
