@@ -8,7 +8,7 @@
       </h2>
       <Textbox name="email" label="Recovery Email" />
       <div class="next-box">
-        <button class="next">Next</button>
+        <router-link to="/reset"><button class="next">Next</button></router-link>
       </div>
     </form>
   </section>
