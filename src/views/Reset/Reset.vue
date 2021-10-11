@@ -1,17 +1,40 @@
 <template>
   <section class="reset">
-    <form action="" class="reset-container">
+    <form @submit.prevent="() => resetPass()" class="reset-container">
       <img class="logo" width="80" src="@/assets/Fundoo-logo.png" alt="Logo" />
       <h1 class="title text-center">Reset your password</h1>
       <h2 class="subtitle text-center">Enter your new password</h2>
-      <Textbox name="password" label="Password" type="password" />
-      <Textbox name="confirm" label="Confirm" type="password" />
+      <Textbox
+        name="password"
+        label="Password"
+        :type="type"
+        class="show-pass"
+        v-model:value="state.passwordReset.passwordReset"
+        :error="
+          v$.passwordReset.passwordReset.$error
+            ? v$.passwordReset.passwordReset.$errors[0].$message
+            : ''
+        "
+      />
+      <Textbox
+        name="confirm"
+        label="Confirm"
+        :type="type"
+        class="show-pass"
+        v-model:value="state.passwordReset.confirmPasswordReset"
+        :error="
+          v$.passwordReset.confirmPasswordReset.$error
+            ? v$.passwordReset.confirmPasswordReset.$errors[0].$message
+            : ''
+        "
+      />
       <div class="show-password">
         <input
           type="checkbox"
           name="show-check"
           id="show-check"
           class="show-check"
+          @click="showPass()"
         />
         <label for="show-check">Show password</label>
       </div>

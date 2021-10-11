@@ -1,14 +1,17 @@
 <template>
   <section class="forgot">
-    <form action="" class="forgot-container">
+    <form @submit.prevent="() => forgotPass()" class="forgot-container">
       <img class="logo" width="80" src="@/assets/Fundoo-logo.png" alt="Logo" />
       <h1 class="title text-center">Reset your password</h1>
-      <h2 class="subtitle text-center">
-        Enter your recovery email
-      </h2>
-      <Textbox name="email" label="Recovery Email" />
+      <h2 class="subtitle text-center">Enter your recovery email</h2>
+      <Textbox
+        name="email"
+        label="Recovery Email"
+        v-model:value="state.emailForgot"
+        :error="v$.emailForgot.$error ? v$.emailForgot.$errors[0].$message : ''"
+      />
       <div class="next-box">
-        <router-link to="/reset"><button class="next">Next</button></router-link>
+        <button class="next" type="submit">Next</button>
       </div>
     </form>
   </section>

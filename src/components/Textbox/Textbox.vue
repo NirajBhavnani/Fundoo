@@ -7,6 +7,7 @@
         :name="name"
         :placeholder="placeholder"
         v-model="value"
+        @input="$emit('update:value', value)"
         :class="[error ? 'error' : '']"
       />
       <label
@@ -16,7 +17,7 @@
         :class="[error ? 'error' : '']"
       ></label>
     </div>
-    <small class="error-text" v-if="error" v-html="error"></small>
+    <small class="error-text" v-html="error ? error : '&nbsp;'"></small>
   </div>
 </template>
 

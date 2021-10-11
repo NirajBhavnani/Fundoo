@@ -1,7 +1,7 @@
 <template>
   <section class="register">
     <div class="register-container">
-      <form action="" class="left box">
+      <form @submit.prevent="() => signup()" class="left box">
         <img
           class="logo"
           width="80"
@@ -9,30 +9,77 @@
           alt="Logo"
         />
         <h1 class="title">Create your Fundoo Account</h1>
-        <Textbox name="firstName" label="First name" />
-        <Textbox name="lastName" label="Last name" />
+        <Textbox
+          name="firstName"
+          label="First name"
+          v-model:value="state.name.firstName"
+          :error="
+            v$.name.firstName.$error
+              ? v$.name.firstName.$errors[0].$message
+              : ''
+          "
+        />
+        <Textbox
+          name="lastName"
+          label="Last name"
+          v-model:value="state.name.lastName"
+          :error="
+            v$.name.lastName.$error ? v$.name.lastName.$errors[0].$message : ''
+          "
+        />
         <div class="email-container">
-          <Textbox name="email" label="Username" type="email" />
+          <Textbox
+            name="email"
+            label="Username"
+            type="email"
+            v-model:value="state.email"
+            :error="v$.email.$error ? v$.email.$errors[0].$message : ''"
+          />
         </div>
         <div class="current-email">
           <a href="#"> Use my current email address instead </a>
         </div>
-        <Textbox name="password" label="Password" type="password" />
-        <Textbox name="confirm" label="Confirm" type="password" />
+        <Textbox
+          name="password"
+          label="Password"
+          :type="type"
+          class="show-pass"
+          v-model:value="state.password.password"
+          :error="
+            v$.password.password.$error
+              ? v$.password.password.$errors[0].$message
+              : ''
+          "
+        />
+        <Textbox
+          name="confirm"
+          label="Confirm"
+          :type="type"
+          class="show-pass"
+          v-model:value="state.password.confirmPassword"
+          :error="
+            v$.password.confirmPassword.$error
+              ? v$.password.confirmPassword.$errors[0].$message
+              : ''
+          "
+        />
         <div class="show-password">
           <input
             type="checkbox"
             name="show-check"
             id="show-check"
             class="show-check"
+            @click="showPass()"
           />
           <label for="show-check">Show password</label>
         </div>
         <div class="sign-in-box">
-         <router-link to="/login" class="sign-in"> Sign in instead </router-link>
+          <router-link to="/login" class="sign-in">
+            Sign in instead
+          </router-link>
         </div>
         <div class="next-box">
-          <button class="next">Next</button>
+          <button class="next" type="submit">Next</button>
         </div>
       </form>
       <div class="right">

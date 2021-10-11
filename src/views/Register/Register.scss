@@ -86,17 +86,20 @@
       }
     }
     .right {
-        flex: 4;
-        @media screen and (max-width: 900px) {
-          display: none;
-        }
-  
-        .one-account {
-          padding: 0 2rem;
-          text-align: center;
-          font-weight: 300;
-          font-size: 1.1rem;
-        }
+      flex: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media screen and (max-width: 900px) {
+        display: none;
       }
+
+      .one-account {
+        padding: 0 2rem;
+        text-align: center;
+        font-weight: 300;
+        font-size: 1.1rem;
+      }
+    }
   }
 }
