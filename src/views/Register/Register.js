@@ -9,6 +9,7 @@ import {
   helpers,
 } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
+import axios from "axios";
 
 export default {
   name: "Register",
@@ -104,12 +105,24 @@ export default {
       }
     },
     signup() {
-      this.v$.$validate();
-      console.log(this.v$);
-      if (!this.v$.$error) {
-        console.log("User registered successfully");
-      } else {
-        console.log("User registration failed");
+      try {
+        this.v$.$validate();
+        console.log(this.v$);
+        if (!this.v$.$error) {
+          let currentData = {
+            fName: this.state.name.firstName,
+            lName: this.state.name.lastName,
+            email: this.state.email,
+            password: this.state.password.password,
+          };
+          const res = axios.post("/users/register", currentData);
+          console.log(res.data.message);
+          console.log("User registered successfully");
+        } else {
+          console.log("User registration failed");
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
   },
