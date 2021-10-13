@@ -104,7 +104,7 @@ export default {
         this.type = "password";
       }
     },
-    signup() {
+    async signup() {
       try {
         this.v$.$validate();
         console.log(this.v$);
@@ -115,8 +115,8 @@ export default {
             email: this.state.email,
             password: this.state.password.password,
           };
-          const res = axios.post("/users/register", currentData);
-          console.log(res.data.message);
+          const res = await axios.post("/users/register", currentData);
+          console.log(res.data);
           console.log("User registered successfully");
         } else {
           console.log("User registration failed");

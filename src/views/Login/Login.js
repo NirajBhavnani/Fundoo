@@ -1,28 +1,24 @@
 import Textbox from "../../components/Textbox/Textbox.vue";
 import useVuelidate from "@vuelidate/core";
-import {
-  required,
-  email,
-  minLength,
-  helpers,
-} from "@vuelidate/validators";
+import { required, email, minLength, helpers } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
+import axios from "axios";
 
 export default {
   name: "Login",
   components: {
     Textbox,
   },
-  setup(){
+  setup() {
     const state = reactive({
       emailLogin: "",
-      passwordLogin: ""
+      passwordLogin: "",
     });
     const mustBeGmail = (value) => value.includes("gmail");
 
-    const rules = computed(()=>{
-      return{
-        emailLogin:{
+    const rules = computed(() => {
+      return {
+        emailLogin: {
           required: helpers.withMessage("Enter Email", required),
           email: helpers.withMessage("Please enter a valid email", email),
           mustBeGmail: helpers.withMessage(
@@ -37,8 +33,8 @@ export default {
             minLength(8)
           ),
         },
-      }
-    })
+      };
+    });
     const v$ = useVuelidate(rules, state); // v$ is standard naming convention for vuelidate
 
     return {
@@ -46,15 +42,28 @@ export default {
       v$,
     };
   },
-  methods:{
-    signin() {
-      this.v$.$validate();
-      console.log(this.v$);
-      if (!this.v$.$error) {
-        console.log("User logged in successfully");
-      } else {
-        console.log("User login failed");
+  methods: {
+    async signin() {
+      try {
+        this.v$.$validate();
+        console.log(this.v$);
+        if (!this.v$.$error) {
+          let currentData = {
+            email: this.state.emailLogin,
+            password: this.state.passwordLogin,
+          };
+          const res = await axios.post("/users/login", currentData);
+          localStorage.setItem("token", res.data.accessToken);
+          // this.$router.push({ name: "Dashboard" });
+          console.log(res.data);
+          console.log("User logged in successfully");
+        } else {
+          console.log("User login failed");
+        }
+      } catch (error) {
+        console.log(error);
+        console.log("Login failed");
       }
     },
-  }
+  },
 };

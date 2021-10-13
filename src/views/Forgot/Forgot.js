@@ -6,6 +6,8 @@ import {
   helpers,
 } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
+import axios from "axios";
+
 
 export default {
   name: "Forgot Password",
@@ -38,13 +40,23 @@ export default {
     };
   },
   methods:{
-    forgotPass() {
-      this.v$.$validate();
-      console.log(this.v$);
-      if (!this.v$.$error) {
-        console.log("Reset link sent successfully");
-      } else {
-        console.log("Reset process failed");
+    async forgotPass() {
+      try {
+        this.v$.$validate();
+        console.log(this.v$);
+        if (!this.v$.$error) {
+          let currentData = {
+            email: this.state.emailForgot
+        }
+          const res = await axios.post('/users/forgot', currentData);
+          console.log(res.data);
+          console.log("Reset link sent successfully");
+        } else {
+          console.log("Reset process failed");
+        }
+      } catch (error) {
+        console.log(error);
+        console.log("Failure");
       }
     },
   }

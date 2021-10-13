@@ -1,19 +1,15 @@
 import Textbox from "../../components/Textbox/Textbox.vue";
 import useVuelidate from "@vuelidate/core";
-import {
-  required,
-  minLength,
-  sameAs,
-  helpers,
-} from "@vuelidate/validators";
+import { required, minLength, sameAs, helpers } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
+import axios from "axios";
 
 export default {
   name: "Reset Password",
   components: {
     Textbox,
   },
-  setup(){
+  setup() {
     const state = reactive({
       passwordReset: {
         passwordReset: "",
@@ -21,8 +17,8 @@ export default {
       },
     });
 
-    const rules = computed(()=>{
-      return{
+    const rules = computed(() => {
+      return {
         passwordReset: {
           passwordReset: {
             required: helpers.withMessage("Enter Password", required),
@@ -39,8 +35,8 @@ export default {
             ),
           },
         },
-      }
-    })
+      };
+    });
     const v$ = useVuelidate(rules, state); // v$ is standard naming convention for vuelidate
 
     return {
@@ -61,14 +57,28 @@ export default {
         this.type = "password";
       }
     },
-    resetPass(){
-      this.v$.$validate();
-      console.log(this.v$);
-      if (!this.v$.$error) {
-        console.log("Password changed successfully");
-      } else {
-        console.log("Password unchanged");
+    async resetPass() {
+      try {
+        console.log(this.$route.params._token);
+        this.v$.$validate();
+        console.log(this.v$);
+        if (!this.v$.$error) {
+          let currentData = {
+            password: this.state.passwordReset.passwordReset,
+          };
+          const res = await axios.patch(
+            "/users/reset/" + this.$route.params._token,
+            currentData
+          );
+          console.log(res.data);
+          console.log("Password changed successfully");
+        } else {
+          console.log("Password unchanged");
+        }
+      } catch (error) {
+        console.log(error);
+        console.log("Reset failure");
       }
-    }
+    },
   },
 };
