@@ -9,7 +9,8 @@ import {
   helpers,
 } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
-import axios from "axios";
+import authService from "../../services/authService.js";
+
 
 export default {
   name: "Register",
@@ -104,10 +105,8 @@ export default {
         this.type = "password";
       }
     },
-    async signup() {
-      try {
+    signup() {
         this.v$.$validate();
-        console.log(this.v$);
         if (!this.v$.$error) {
           let currentData = {
             fName: this.state.name.firstName,
@@ -115,15 +114,10 @@ export default {
             email: this.state.email,
             password: this.state.password.password,
           };
-          const res = await axios.post("/users/register", currentData);
-          console.log(res.data);
-          console.log("User registered successfully");
+          authService.signup(currentData);
         } else {
-          console.log("User registration failed");
+        console.log("Error!!: Registration failed because of invalid input");
         }
-      } catch (error) {
-        console.log(error);
-      }
     },
   },
 };

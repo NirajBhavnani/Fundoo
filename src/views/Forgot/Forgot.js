@@ -6,7 +6,7 @@ import {
   helpers,
 } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
-import axios from "axios";
+import authService from "../../services/authService.js";
 
 
 export default {
@@ -40,24 +40,16 @@ export default {
     };
   },
   methods:{
-    async forgotPass() {
-      try {
+    forgotPass() {
         this.v$.$validate();
-        console.log(this.v$);
         if (!this.v$.$error) {
           let currentData = {
             email: this.state.emailForgot
         }
-          const res = await axios.post('/users/forgot', currentData);
-          console.log(res.data);
-          console.log("Reset link sent successfully");
+         authService.forgot(currentData);
         } else {
-          console.log("Reset process failed");
+        console.log("Error!!: Process failed because of invalid input");
         }
-      } catch (error) {
-        console.log(error);
-        console.log("Failure");
-      }
     },
   }
 };

@@ -2,7 +2,7 @@ import Textbox from "../../components/Textbox/Textbox.vue";
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, helpers } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
-import axios from "axios";
+import authService from "../../services/authService.js";
 
 export default {
   name: "Login",
@@ -43,26 +43,16 @@ export default {
     };
   },
   methods: {
-    async signin() {
-      try {
-        this.v$.$validate();
-        console.log(this.v$);
-        if (!this.v$.$error) {
-          let currentData = {
-            email: this.state.emailLogin,
-            password: this.state.passwordLogin,
-          };
-          const res = await axios.post("/users/login", currentData);
-          localStorage.setItem("token", res.data.accessToken);
-          // this.$router.push({ name: "Dashboard" });
-          console.log(res.data);
-          console.log("User logged in successfully");
-        } else {
-          console.log("User login failed");
-        }
-      } catch (error) {
-        console.log(error);
-        console.log("Login failed");
+    signin() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let currentData = {
+          email: this.state.emailLogin,
+          password: this.state.passwordLogin,
+        };
+        authService.signin(currentData);
+      } else {
+        console.log("Error!!: Login failed because of invalid input");
       }
     },
   },

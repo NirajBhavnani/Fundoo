@@ -2,7 +2,7 @@ import Textbox from "../../components/Textbox/Textbox.vue";
 import useVuelidate from "@vuelidate/core";
 import { required, minLength, sameAs, helpers } from "@vuelidate/validators";
 import { reactive, computed } from "vue";
-import axios from "axios";
+import authService from "../../services/authService.js";
 
 export default {
   name: "Reset Password",
@@ -57,27 +57,16 @@ export default {
         this.type = "password";
       }
     },
-    async resetPass() {
-      try {
-        console.log(this.$route.params._token);
-        this.v$.$validate();
-        console.log(this.v$);
-        if (!this.v$.$error) {
-          let currentData = {
-            password: this.state.passwordReset.passwordReset,
-          };
-          const res = await axios.patch(
-            "/users/reset/" + this.$route.params._token,
-            currentData
-          );
-          console.log(res.data);
-          console.log("Password changed successfully");
-        } else {
-          console.log("Password unchanged");
-        }
-      } catch (error) {
-        console.log(error);
-        console.log("Reset failure");
+    resetPass() {
+      let resetToken = this.$route.params._token;
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let currentData = {
+          password: this.state.passwordReset.passwordReset,
+        };
+        authService.reset(currentData, resetToken);
+      } else {
+        console.log("Error!!: Process failed because of invalid input");
       }
     },
   },
