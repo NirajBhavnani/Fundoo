@@ -1,0 +1,39 @@
+.keep-logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        background-color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+    }
+    a{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        img{
+            height: 40px;
+            width: 40px;
+        }
+        color: #5f6368;
+        text-decoration: none;
+        span{
+            font-family: sans-serif;
+            padding-left: 4px;
+            font-size: 22px;
+            line-height: 24px;
+            vertical-align: middle;
+        }
+    }
+}
+.keep-logo{
+    button:hover{
+        background-color: #c5c5c5;
+        transition: 0.2s ease-in-out;
+    }
+}

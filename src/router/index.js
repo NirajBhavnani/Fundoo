@@ -28,6 +28,11 @@ const routes = [
     component: () => import('../views/Reset/Reset.vue')
   },
   {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard/Dashboard.vue')
+  },
+  {
     path: '/vuex',
     name: 'VueX',
     component: () => import('../views/VuexPractice.vue')

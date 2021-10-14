@@ -1,0 +1,21 @@
+.dashboard-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #c5c5c5;
+    padding-bottom: 5px;
+    svg{
+        height: 26px;
+        width: 26px;
+        fill: #5f6368;
+    }
+}
+
+.action-component{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 90%;
+}
