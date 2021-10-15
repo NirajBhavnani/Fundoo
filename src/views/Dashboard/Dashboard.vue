@@ -1,7 +1,9 @@
 <template>
   <div class="dashboard">
     <DashboardHeader />
-    <div class="body-container"></div>
+    <div class="body-container">
+        <SideBar />
+    </div>
   </div>
 </template>
 
