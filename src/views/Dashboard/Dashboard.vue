@@ -1,9 +1,8 @@
 <template>
-    <div class="dashboard">
-        <div class="body-container">
-            <DashboardHeader />
-        </div>
-    </div>
+  <div class="dashboard">
+    <DashboardHeader />
+    <div class="body-container"></div>
+  </div>
 </template>
 
 <script type="module" src="./Dashboard.js"></script>

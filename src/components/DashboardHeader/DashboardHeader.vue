@@ -3,7 +3,9 @@
         <KeepLogo />
         <div class="action-component">
             <SearchBar />
+            <Actions />
         </div>
+        <AccountButtons />
     </div>
 </template>
 
