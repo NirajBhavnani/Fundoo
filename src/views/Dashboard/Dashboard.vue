@@ -3,6 +3,9 @@
     <DashboardHeader />
     <div class="body-container">
         <SideBar />
+        <div class="notes-container">
+          <TakeANote />
+        </div>
     </div>
   </div>
 </template>

@@ -1,0 +1,101 @@
+.take-a-note {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+@mixin flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.take-note {
+  @include flex;
+  width: 600px;
+  height: 44px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 0 20px;
+  input {
+    height: 44px;
+    width: 80%;
+    padding: 0;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #111;
+  }
+  button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 44px;
+    width: 48px;
+    padding: 10px;
+  }
+  button:hover {
+    background-color: #c5c5c5;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.take-note-buttons {
+  @include flex;
+}
+
+.create-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 600px;
+  height: max-content;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 4px 20px;
+  input {
+    height: 44px;
+    padding: 0;
+    border: none;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #111;
+  }
+  button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 32px;
+    width: 34px;
+    padding: 5px;
+  }
+  button:hover {
+    background-color: #c5c5c5;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.pair {
+  @include flex;
+  .close-button {
+    height: 36px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 8px 24px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
+}
