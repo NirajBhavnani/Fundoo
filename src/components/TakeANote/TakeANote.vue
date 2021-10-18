@@ -23,7 +23,7 @@
             </div>
             <input type="text" placeholder="Take a note..." autofocus>
             <div class="pair">
-                <p>Icon Buttons</p>
+                <NoteButtons />
                 <button class="close-button" @click="newNoteSwitch()">Close</button>
             </div>
         </div>

@@ -1,3 +1,5 @@
+import NoteButtons from "../NoteButtons/NoteButtons.vue";
+
 export default{
     name: 'TakeANote',
     data(){
@@ -10,4 +12,7 @@ export default{
             this.newNoteBoolean = !this.newNoteBoolean
         }
     },
+    components: {
+        NoteButtons
+    }
 }
