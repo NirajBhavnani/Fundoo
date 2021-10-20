@@ -15,10 +15,9 @@ let authService = {
   async signin(currentData) {
     try {
       const res = await axios.post("/users/login", currentData);
-      localStorage.setItem("token", res.data.accessToken);
-      // this.$router.push({ name: "Dashboard" });
       console.log(res.data);
       console.log("User logged in successfully");
+      return res;
     } catch (error) {
       console.log(error);
       console.log(

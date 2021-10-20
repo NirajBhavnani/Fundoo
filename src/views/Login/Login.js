@@ -50,7 +50,10 @@ export default {
           email: this.state.emailLogin,
           password: this.state.passwordLogin,
         };
-        authService.signin(currentData);
+        authService.signin(currentData).then((res) => {
+          localStorage.setItem("token", res.data.accessToken);
+          this.$router.push("/dashboard");
+        });
       } else {
         console.log("Error!!: Login failed because of invalid input");
       }
