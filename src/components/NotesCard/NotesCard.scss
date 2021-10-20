@@ -1,0 +1,72 @@
+.notes-card{
+    max-width: 280px;
+    width: 100%;
+    height: max-content;
+    border-radius: 10px;
+    border: 1px solid #c5c5c5;
+    padding: 8px 12px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    .pair{
+        display: flex;
+        justify-content: space-between;
+        button{
+            visibility: hidden;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            height: 32px;
+            width: 34px;
+            padding: 5px;
+        }
+    }
+    .note-buttons{
+        padding-top: 20px;
+        button{
+            visibility: hidden;
+            margin-right: 0;
+        }
+    }
+    label{
+        word-break:break-all;
+    }
+}
+
+.notes-card{
+    .pair{
+        button:hover{
+            background-color: #c5c5c5;
+            transition: 0.2s ease-in-out;
+        }
+    }
+}
+
+.notes-card:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    .pair{
+        button{
+            visibility: visible;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    .note-buttons{
+        button{
+            visibility: visible;
+            transition: 0.2s ease-in-out;
+        }
+    }
+}
+
+#display-note-list{
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .notes-card{
+        max-width: 600px;
+        margin-bottom: 10px;
+    }
+}

@@ -5,6 +5,7 @@
         <SideBar />
         <div class="notes-container">
           <TakeANote />
+          <Notes />
         </div>
     </div>
   </div>
