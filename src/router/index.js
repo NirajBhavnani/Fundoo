@@ -38,6 +38,11 @@ const routes = [
     component: () => import('../views/Archives/Archives.vue')
   },
   {
+    path: '/trash',
+    name: 'Trash',
+    component: () => import('../views/Trash/Trash.vue')
+  },
+  {
     path: '/vuex',
     name: 'VueX',
     component: () => import('../views/VuexPractice.vue')

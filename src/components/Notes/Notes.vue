@@ -9,6 +9,11 @@
             <NotesCard v-for="items in returnAllArchives" :key="items._id" :data="items"/>
         </div>
     </div>
+    <div class="notes" v-if="page == 'trash'">
+        <div class="notes-list">
+            <NotesCard v-for="items in returnAllTrash" :key="items._id" :data="items"/>
+        </div>
+    </div>
 </template>
 
 <script type="module" src="./Notes.js"></script>
