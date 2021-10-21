@@ -1,14 +1,12 @@
 .notes{
     margin-left: 5rem;
     margin-top: 2rem;
+    max-width: 90vw;
 
     .notes-list{
-        width: 100%;
         height: 100%;  
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 4px;
-        margin-left: auto;
-        margin-right: auto;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 20px 40px;
     }
 }

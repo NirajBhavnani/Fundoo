@@ -1,10 +1,7 @@
 <template>
     <div class="notes">
         <div class="notes-list">
-            <NotesCard />
-            <NotesCard />
-            <NotesCard />
-            <NotesCard />
+            <NotesCard v-for="items in returnAllNotes" :key="items._id" :data="items"/>
         </div>
     </div>
 </template>

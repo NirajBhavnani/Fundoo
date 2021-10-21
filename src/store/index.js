@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import todos from './modules/todos';
 import SideBar from './modules/SideBar';
+import Notes from './modules/Notes';
 
 export default createStore({
   state: {
@@ -11,6 +12,7 @@ export default createStore({
   },
   modules: {
     todos,
-    SideBar
+    SideBar,
+    Notes
   }
 })
