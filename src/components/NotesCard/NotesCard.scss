@@ -4,7 +4,16 @@
   border-radius: 10px;
   border: 1px solid #c5c5c5;
   padding: 12px 12px 4px 12px;
-  
+  // white-space: nowrap;
+
+  label {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .pair {
     display: flex;
     justify-content: space-between;

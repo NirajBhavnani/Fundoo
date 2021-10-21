@@ -50,12 +50,16 @@ const actions = {
       console.log(error);
     }
   },
+  updateAllNotes({ commit }, data) {
+    commit("UPDATE_ALL_NOTES", data);
+  },
 };
 
 const mutations = {
   GET_ALL_NOTES: (state, data) => (state.notes = data.reverse()),
   GET_ARCHIVED_NOTES: (state, data) => (state.archives = data),
-  GET_TRASH_NOTES: (state, data) => (state.trash = data)
+  GET_TRASH_NOTES: (state, data) => (state.trash = data),
+  UPDATE_ALL_NOTES: (state, data) => state.notes.unshift(data),
 };
 
 export default {
