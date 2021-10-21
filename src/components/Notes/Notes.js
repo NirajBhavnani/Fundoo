@@ -6,11 +6,17 @@ export default{
     components:{
         NotesCard
     },
-    computed: mapGetters(["returnAllNotes"]),
+    computed: mapGetters(["returnAllNotes", "returnAllArchives"]),
     methods: {
-        ...mapActions(["getAllNotes"]),
+        ...mapActions(["getAllNotes", "getAllArchives"]),
     },
     created(){
         this.getAllNotes();
+        this.getAllArchives();
+    },
+    props:{
+        page:{
+            type: String,
+        }
     }
 }

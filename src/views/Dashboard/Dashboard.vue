@@ -5,7 +5,7 @@
         <SideBar />
         <div class="notes-container">
           <TakeANote />
-          <Notes />
+          <Notes page="dashboard"/>
         </div>
     </div>
   </div>
