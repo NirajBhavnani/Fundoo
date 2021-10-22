@@ -1,5 +1,5 @@
 <template>
-    <div class="notes-card">
+    <div class="notes-card" :style="{ backgroundColor: notesData.color}">
         <div class="pair">
             <label for="title" v-text="notesData.title"></label>
             <button>
@@ -7,7 +7,7 @@
             </button>
         </div>
         <label for="content" v-text="notesData.description"></label>
-        <NoteButtons />
+        <NoteButtons :data="notesData"/>
     </div>
 </template>
 

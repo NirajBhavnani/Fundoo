@@ -5,7 +5,7 @@
     align-items: center;
     padding-top: 10px;
     button{
-        background-color: #fff;
+        background-color: transparent;
         border: none;
         cursor: pointer;
         border-radius: 50%;
@@ -15,7 +15,7 @@
         // margin-right: 20px;
     }
     button:hover{
-        background-color: #c5c5c5;
+        background-color: #E9EAEA;
         transition: 0.2s ease-in-out;
     }
     svg{
