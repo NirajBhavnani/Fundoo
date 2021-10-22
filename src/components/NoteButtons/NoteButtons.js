@@ -33,6 +33,11 @@ export default {
     async deleteNote(){
       await notesService.deleteNote(this.notesData);
       this.refreshContent();
+    },
+    async changeColor(color){
+      this.notesData.color = color;
+      await notesService.changeColor(this.notesData);
+      this.refreshContent();
     }
   }
 };

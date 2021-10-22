@@ -39,6 +39,15 @@ let notesService = {
       console.log(error);
     }
   },
+  async changeColor(currentData){
+    try{
+        const res = await axios.patch('/notes/update/' +currentData._id, currentData, this.header);
+        console.log(res.data);
+    } catch(error){
+        console.log("Color not updated");
+        console.log(error);
+    }
+}
 };
 
 export default notesService;
