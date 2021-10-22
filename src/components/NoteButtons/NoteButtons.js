@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       notesData: this.data,
+      noteColors: false,
     };
   },
   watch: {

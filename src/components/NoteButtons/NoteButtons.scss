@@ -22,4 +22,41 @@
         height: 20px;
         width: 20px;
     }
+    .color-palette{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        width: max-content;
+        height: max-content;
+        border-radius: 5px;
+        border: 1px solid #c5c5c5;
+        background-color: #fff;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        padding: 5px;
+        position: absolute;
+        left: auto;
+        top: auto;
+        z-index: 5000;
+    }
+    
+    .color{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        margin: 2px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        cursor: pointer;
+        svg{
+            height: 24px;
+            width: 24px;
+            fill: rgba(0,0,0,0.3);
+        }
+    }
+    
+    .color:hover{
+        border: 2px solid #000000;
+    }
 }
