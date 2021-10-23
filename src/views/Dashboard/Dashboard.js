@@ -10,5 +10,10 @@ export default{
         SideBar,
         TakeANote,
         Notes
+    },
+    beforeMount(){
+        if(localStorage.getItem('token') == '' || localStorage.getItem('token') == null){
+            this.$router.push('/login')
+        }
     }
 }
