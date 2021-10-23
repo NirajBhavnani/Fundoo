@@ -52,6 +52,7 @@ export default {
         };
         authService.signin(currentData).then((res) => {
           localStorage.setItem("token", res.data.accessToken);
+          localStorage.setItem("profile", JSON.stringify([res.data.email, res.data.fName, res.data.lName]));
           this.$router.push("/dashboard");
         });
       } else {
