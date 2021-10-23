@@ -1,4 +1,5 @@
 import NoteButtons from "../NoteButtons/NoteButtons.vue";
+import notesService from "../../services/notesService.js";
 
 export default {
   name: "NotesCard",
@@ -13,11 +14,19 @@ export default {
   data() {
     return {
       notesData: this.data,
+      updateNote: false,
     };
   },
   watch: {
     data: function(newVal) {
       this.notesData = newVal;
+    },
+  },
+  methods: {
+    async updateNoteFunc() {
+      await notesService.updateNote(this.notesData);
+
+      this.updateNote = false;
     },
   },
 };

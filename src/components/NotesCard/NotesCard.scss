@@ -60,3 +60,80 @@
     transition: 0.2s ease-in-out;
   }
 }
+
+.update-note-container{
+  width: 110vw;
+  height: 200vh;
+  position: fixed;
+  left: -10px;
+  top: -60px;
+  z-index: 6000;
+  background-color: rgba(0,0,0,0.7);
+}
+
+@mixin flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.update-note{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 600px;
+  height: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 4px 20px;
+  position: absolute;    
+  left: 48.5%;
+  transform: translateX(-51%);
+  top: 22%;
+  z-index: 5000;
+  input{
+      height: 44px;
+      padding: 0;
+      border: none;
+      outline: none;
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.5rem;
+      color: #111;
+  }
+  button{
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: 50%;
+      height: 32px;
+      width: 34px;
+      padding: 5px;
+  }
+}
+
+.pair{
+  @include flex;
+  .close-button{
+      display: block;
+      height: 36px;
+      width: 100px;
+      border-radius: 5px;
+      padding: 8px 24px;
+      font-size: .875rem;
+      font-weight: 500;
+      line-height: 1.25rem;
+  }
+}
+
+.update-note{
+  button:hover{
+      background-color: #c5c5c5;
+      transition: 0.2s ease-in-out;
+  }
+}
